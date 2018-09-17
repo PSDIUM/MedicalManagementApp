@@ -47,16 +47,24 @@ public class PatientActivity extends AppCompatActivity {
         Intent i = getIntent();
         mPatient = (User) i.getSerializableExtra("PATIENT");
 
-        TextView patientName = findViewById(R.id.patient_name_tv);
-        TextView patientId = findViewById(R.id.patient_id_tv);
-
-        patientName.setText(mPatient.getName());
-        patientId.setText(String.valueOf(mPatient.getId()));
+        initPatDetails();
 
         Toast.makeText(this, mPatient.getUserType() + ": Welcome " + mPatient.getName(), Toast.LENGTH_LONG).show();
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    private void initPatDetails() {
+        TextView patTitle = findViewById(R.id.patTitle);
+        TextView patientName = findViewById(R.id.patient_name_tv);
+        TextView patientId = findViewById(R.id.patient_id_tv);
+        TextView patDOB = findViewById(R.id.patient_DOB);
+
+        patientName.setText("Name: " + mPatient.getName());
+        patientId.setText("ID: " + String.valueOf(mPatient.getId()));
+        patTitle.setText("Welcome " + mPatient.getName());
+        patDOB.setText("DOB: " + mPatient.getDOB());
     }
 
 }

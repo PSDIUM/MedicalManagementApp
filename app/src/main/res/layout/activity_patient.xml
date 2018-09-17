@@ -8,6 +8,7 @@
     tools:context=".activity.PatientActivity">
 
     <LinearLayout
+        android:padding="@dimen/activity_padding"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -16,17 +17,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:layout_weight="1"
             >
 
             <TextView
+                android:id="@+id/patTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Patient Profile"
                 android:layout_marginBottom="10dp"
-                android:textSize="30sp"
-                />
+                android:text="Patient Profile"
+                android:textSize="30sp" />
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -35,31 +36,56 @@
                 />
 
             <TextView
-                android:id="@+id/patient_name_tv"
+                android:id="@+id/infoTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="patient name"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/your_information"
                 android:textStyle="bold"
-                />
-            <TextView
-                android:id="@+id/patient_id_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="patient id"
-                android:textStyle="bold"
-                />
+                android:textSize="24dp"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/patient_name_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="patient name"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        />
+                    <TextView
+                        android:id="@+id/patient_id_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="patient id"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/patient_DOB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="patient DOB"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        />
+
+                </LinearLayout>
+
+            </ScrollView>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            >
-
-        </LinearLayout>
-
     </LinearLayout>
 
 

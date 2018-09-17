@@ -1,0 +1,31 @@
+package com.sepproject.medicalmanagementapp.activity;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.sepproject.medicalmanagementapp.R;
+import com.sepproject.medicalmanagementapp.model.User;
+
+public class DoctorActivity extends AppCompatActivity {
+
+    private User mDoctor;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_doctor);
+        Intent i = getIntent();
+        mDoctor = (User) i.getSerializableExtra("DOCTOR");
+
+        TextView doctorName = findViewById(R.id.doctor_name_tv);
+        TextView doctorId = findViewById(R.id.doctor_id_tv);
+
+        doctorName.setText(mDoctor.getName());
+        doctorId.setText(String.valueOf(mDoctor.getId()));
+
+        Toast.makeText(this, mDoctor.getUserType() + ": Welcome " + mDoctor.getName(), Toast.LENGTH_LONG).show();
+    }
+}

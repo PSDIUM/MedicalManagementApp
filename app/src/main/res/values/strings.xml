@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MedicalManagementApp</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string-array name="user_array">
+        <item>Doctor</item>
+        <item>Patient</item>
+    </string-array>
+    <string name="title_activity_patient">PatientActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

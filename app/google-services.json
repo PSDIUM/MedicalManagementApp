@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "528202089790",
+    "firebase_url": "https://medicalmanagementapp.firebaseio.com",
+    "project_id": "medicalmanagementapp",
+    "storage_bucket": "medicalmanagementapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528202089790:android:e27e55470a39de8a",
+        "android_client_info": {
+          "package_name": "com.sepproject.medicalmanagementapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528202089790-cgeu14tuvcvh8fedm1krapoiq8v7op53.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sepproject.medicalmanagementapp",
+            "certificate_hash": "305821d59bf981012e691058c9cb7bb28b7cddbe"
+          }
+        },
+        {
+          "client_id": "528202089790-cdf2lq7e2p9c41cvsdv4tnnou0m9j4av.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSVaacq2Zvvv4eVfYYtqLor6sTDU9gXPQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528202089790-cdf2lq7e2p9c41cvsdv4tnnou0m9j4av.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

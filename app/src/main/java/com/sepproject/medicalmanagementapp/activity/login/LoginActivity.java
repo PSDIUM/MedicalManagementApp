@@ -35,8 +35,10 @@ public class LoginActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Register ViewModel
         mLoginViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
 
+        // Find and assign fields
         TextView registerTv = findViewById(R.id.register_tv);
         mEmailEt = findViewById(R.id.email_et);
         mPasswordEt = findViewById(R.id.password_et);

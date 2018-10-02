@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.activity;
+package com.sepproject.medicalmanagementapp.activity.login;
 
 import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
@@ -16,6 +16,9 @@ import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.Login.LoginViewModel;
 import com.sepproject.medicalmanagementapp.R;
+import com.sepproject.medicalmanagementapp.activity.DoctorActivity;
+import com.sepproject.medicalmanagementapp.activity.NewUserActivity;
+import com.sepproject.medicalmanagementapp.activity.PatientActivity;
 import com.sepproject.medicalmanagementapp.model.User;
 
 public class LoginActivity extends AppCompatActivity {

@@ -17,12 +17,16 @@ import com.sepproject.medicalmanagementapp.model.Drug;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class DrugActivityFragment extends Fragment {
+public class DrugListFragment extends Fragment {
 
     private DrugAdapter mAdapter;
     private RecyclerView mRecyclerView;
 
-    public DrugActivityFragment() {
+    public DrugListFragment() {
+    }
+
+    public static DrugListFragment newInstance() {
+        return new DrugListFragment();
     }
 
     @Override

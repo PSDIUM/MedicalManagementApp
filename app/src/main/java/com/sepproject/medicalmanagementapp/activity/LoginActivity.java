@@ -1,7 +1,6 @@
 package com.sepproject.medicalmanagementapp.activity;
 
 import android.app.Activity;
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.R;
+import com.sepproject.medicalmanagementapp.activity.drug.DrugActivity;
 import com.sepproject.medicalmanagementapp.model.User;
 
 public class DoctorActivity extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class DoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open new Drug activity
-                startActivity(new Intent(this, ));
+                startActivity(new Intent(getApplicationContext(), DrugActivity.class));
             }
         });
     }

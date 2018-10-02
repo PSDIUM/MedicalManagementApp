@@ -10,4 +10,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="your_information">Your Information</string>
+    <string name="title_activity_drug">DrugActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

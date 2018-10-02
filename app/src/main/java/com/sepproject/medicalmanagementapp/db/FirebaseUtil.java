@@ -31,4 +31,8 @@ public class FirebaseUtil {
     public FirebaseUser getCurrentUser() {
         return mAuth.getCurrentUser();
     }
+
+    public Boolean isDoctor(FirebaseUser user) {
+        return true;
+    }
 }

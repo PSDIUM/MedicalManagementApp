@@ -73,15 +73,13 @@
         android:orientation="horizontal"
 
         android:layout_weight="0"
-        android:gravity="center"
-        >
+        android:gravity="center">
         <Button
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Login"
-            />
+            android:text="Login" />
     </LinearLayout>
 
 </LinearLayout>

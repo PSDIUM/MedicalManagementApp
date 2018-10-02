@@ -5,12 +5,10 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,8 +17,6 @@ import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.Login.LoginViewModel;
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.db.UserDatabaseHelper;
-import com.sepproject.medicalmanagementapp.model.Patient;
 import com.sepproject.medicalmanagementapp.model.User;
 
 public class LoginActivity extends AppCompatActivity {
@@ -85,18 +81,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void login1(){
-        String email = mEmailEt.getText().toString();
-        String password = mPasswordEt.getText().toString();
-
-        LiveData<Patient> patient = mLoginViewModel.getPatient(email,password);
-
-        if(patient!=null){
-            Intent i = new Intent(LoginActivity.this, PatientActivity.class);
-            i.putExtra("PATIENT", user);
-            startActivity(i);
-        }
-    }
     private void login(){
         String email = mEmailEt.getText().toString();
         String password = mPasswordEt.getText().toString();

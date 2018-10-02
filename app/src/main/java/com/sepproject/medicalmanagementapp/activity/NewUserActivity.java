@@ -7,10 +7,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.db.UserDatabaseHelper;
 import com.sepproject.medicalmanagementapp.model.User;
 
 public class NewUserActivity extends AppCompatActivity {

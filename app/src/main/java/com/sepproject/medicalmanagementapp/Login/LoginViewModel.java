@@ -5,7 +5,6 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 
 import com.sepproject.medicalmanagementapp.Patient.PatientRepository;
-import com.sepproject.medicalmanagementapp.model.Patient;
 
 public class LoginViewModel extends AndroidViewModel{
 

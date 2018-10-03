@@ -1,17 +1,14 @@
 package com.sepproject.medicalmanagementapp.activity.login;
 
-import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.ViewModel;
 
-import com.sepproject.medicalmanagementapp.Patient.PatientRepository;
+import com.sepproject.medicalmanagementapp.db.FirebaseUtil;
 
-public class LoginViewModel extends AndroidViewModel{
+public class LoginViewModel extends ViewModel {
 
-    private PatientRepository mRepository;
+    private FirebaseUtil mFirebaseUtil = FirebaseUtil.getInstance();
 
-    public LoginViewModel(Application application) {
-        super(application);
-        mRepository = new PatientRepository(application);
+    public boolean logIn(String email, String password) {
+        return mFirebaseUtil.logIn(email, password);
     }
 }

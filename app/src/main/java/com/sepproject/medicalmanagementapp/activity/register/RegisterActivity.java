@@ -1,5 +1,6 @@
-package com.sepproject.medicalmanagementapp.activity;
+package com.sepproject.medicalmanagementapp.activity.register;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.Spinner;
 import com.sepproject.medicalmanagementapp.R;
 import com.sepproject.medicalmanagementapp.model.User;
 
-public class NewUserActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     private EditText mFirstNameEt;
     private EditText mLastNameEt;
@@ -19,6 +20,8 @@ public class NewUserActivity extends AppCompatActivity {
     private EditText mEmailEt;
     private EditText mPasswordEt;
     private Spinner mSpinner;
+
+    private RegisterViewModel mViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,9 @@ public class NewUserActivity extends AppCompatActivity {
         mDobEt = findViewById(R.id.dobEt);
         mEmailEt = findViewById(R.id.new_email_Et);
         mPasswordEt = findViewById(R.id.new_password_et);
+
+        // Register ViewModel
+        mViewModel = ViewModelProviders.of(this).get(RegisterViewModel.class);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -65,16 +71,10 @@ public class NewUserActivity extends AppCompatActivity {
         String password = mPasswordEt.getText().toString();
         String userType = mSpinner.getSelectedItem().toString();
 
-        UserDatabaseHelper.getInstance(NewUserActivity.this).registerUser(new User(
-                0,
-                name,
-                dob,
-                password,
-                email,
-                userType
-        ));
+        // TODO: Implement registration with other details
+        mViewModel.registerUser(email, password);
 
-        //UserDatabaseHelper.getInstance(NewUserActivity.this).close();
+        //UserDatabaseHelper.getInstance(RegisterActivity.this).close();
         setResult(RESULT_OK);
         finish();
     }

@@ -54,15 +54,6 @@ public class LoginActivity extends AppCompatActivity {
                 login();
             }
         });
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -84,7 +75,9 @@ public class LoginActivity extends AppCompatActivity {
         String email = mEmailEt.getText().toString();
         String password = mPasswordEt.getText().toString();
 
-        if (mLoginViewModel.logIn(email, password)) {
+        boolean loginresult = mLoginViewModel.logIn(email, password);
+
+        if (loginresult) {
             // Login success
             Toast.makeText(LoginActivity.this,"Authenticated with Firebase", Toast.LENGTH_LONG).show();
         } else {

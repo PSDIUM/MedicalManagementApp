@@ -9,7 +9,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class FirebaseUtil {
 
@@ -17,7 +18,9 @@ public class FirebaseUtil {
 
     private static FirebaseUtil mFirebaseUtil;
     private FirebaseAuth mAuth;
-    private FirebaseDatabase mDatabase;
+    private FirebaseFirestore mFirestore;
+
+    private static final String DRUG_COLLECTION = "drugs";
 
     private boolean mLoginResult;
 
@@ -33,9 +36,10 @@ public class FirebaseUtil {
     // Private constructor to initialise auth and database
     private FirebaseUtil() {
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance();
+        mFirestore = FirebaseFirestore.getInstance();
     }
 
+    // Login/user methods
     @Nullable
     public FirebaseUser getCurrentUser() {
         return mAuth.getCurrentUser();
@@ -56,13 +60,19 @@ public class FirebaseUtil {
                         }
                     }
                 });
+
         return mLoginResult;
     }
+
     private void setLoginResult(boolean success) {
         mLoginResult = success;
     }
 
     public Boolean isDoctor(FirebaseUser user) {
         return true;
+    }
+
+    public Query getAllDrugQuery() {
+        return mFirestore.collection(DRUG_COLLECTION);
     }
 }

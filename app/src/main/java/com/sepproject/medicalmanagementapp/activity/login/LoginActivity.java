@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sepproject.medicalmanagementapp.Login.LoginViewModel;
 import com.sepproject.medicalmanagementapp.R;
 import com.sepproject.medicalmanagementapp.activity.DoctorActivity;
 import com.sepproject.medicalmanagementapp.activity.NewUserActivity;
@@ -47,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
         registerTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.print("Hello");
                 Intent i = new Intent(LoginActivity.this, NewUserActivity.class);
                 startActivityForResult(i, REGISTER_REQUEST);
             }

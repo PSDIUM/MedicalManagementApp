@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.Login;
+package com.sepproject.medicalmanagementapp.activity.login;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;

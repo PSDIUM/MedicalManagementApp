@@ -10,10 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.model.Patient;
 import com.sepproject.medicalmanagementapp.model.User;
-
-import org.w3c.dom.Text;
 
 public class PatientActivity extends AppCompatActivity {
 

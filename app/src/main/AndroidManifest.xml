@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.drug.DrugActivity"
+            android:label="@string/title_activity_drug"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,14 +21,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.login.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.NewUserActivity" />
         <activity
             android:name=".activity.PatientActivity"
             android:label="@string/title_activity_patient" />
-        <activity android:name=".activity.DoctorActivity"></activity>
+        <activity android:name=".activity.DoctorActivity" />
     </application>
 
 </manifest>

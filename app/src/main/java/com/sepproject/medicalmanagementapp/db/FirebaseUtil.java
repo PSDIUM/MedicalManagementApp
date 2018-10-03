@@ -4,13 +4,16 @@ import android.support.annotation.Nullable;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class FirebaseUtil {
 
     private static FirebaseUtil mFirebaseUtil;
     private FirebaseAuth mAuth;
-    private FirebaseDatabase mDatabase;
+    private FirebaseFirestore mFirestore;
+
+    private static final String DRUG_COLLECTION = "drugs";
 
     // Singleton instance getter
     public static FirebaseUtil getInstance() {
@@ -24,7 +27,7 @@ public class FirebaseUtil {
     // Private constructor to initialise auth and database
     private FirebaseUtil() {
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance();
+        mFirestore = FirebaseFirestore.getInstance();
     }
 
     @Nullable
@@ -34,5 +37,9 @@ public class FirebaseUtil {
 
     public Boolean isDoctor(FirebaseUser user) {
         return true;
+    }
+
+    public Query getAllDrugQuery() {
+        return mFirestore.collection(DRUG_COLLECTION);
     }
 }

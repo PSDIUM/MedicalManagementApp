@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.sepproject.medicalmanagementapp.R;
+import com.sepproject.medicalmanagementapp.activity.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -22,7 +22,7 @@ public class FirebaseUtil {
 
     private static final String DRUG_COLLECTION = "drugs";
 
-    private boolean mResult;
+    private TaskResultListener mResultListener;
 
     // Singleton instance getter
     public static FirebaseUtil getInstance() {
@@ -40,14 +40,26 @@ public class FirebaseUtil {
     }
 
     // Login/user methods
+
+    // Interface for ResultListeners
+    public interface TaskResultListener {
+
+        void OnLoginTaskResultReceived(boolean result);
+        void OnRegisterTaskResultReceived(boolean result);
+    }
+
+    // Set Result Listener
+    public void setnTaskResultListener(TaskResultListener listener) {
+
+        this.mResultListener = listener;
+    }
+
     @Nullable
     public FirebaseUser getCurrentUser() {
         return mAuth.getCurrentUser();
     }
 
-    public boolean logIn(String email, String password) {
-        // Reset result
-        setResult(false);
+    public void logIn(String email, String password) {
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -55,21 +67,17 @@ public class FirebaseUtil {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
-                            setResult(true);
+                            mResultListener.OnLoginTaskResultReceived(true);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            setResult(false);
+                            mResultListener.OnLoginTaskResultReceived(false);
                         }
                     }
                 });
-
-        return mResult;
     }
 
-    public boolean registerUser(String email, String password) {
-        // Reset result
-        setResult(false);
+    public void registerUser(String email, String password) {
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -78,20 +86,14 @@ public class FirebaseUtil {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
-                            setResult(true);
+                            mResultListener.OnRegisterTaskResultReceived(true);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            setResult(false);
+                            mResultListener.OnRegisterTaskResultReceived(false);
                         }
                     }
                 });
-
-        return mResult;
-    }
-
-    private void setResult(boolean success) {
-        mResult = success;
     }
 
     public Boolean isDoctor(FirebaseUser user) {

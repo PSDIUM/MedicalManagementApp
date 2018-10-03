@@ -22,6 +22,8 @@ public class FirebaseUtil {
 
     private static final String DRUG_COLLECTION = "drugs";
 
+    private boolean mLoginResult;
+
     // Singleton instance getter
     public static FirebaseUtil getInstance() {
 
@@ -65,7 +67,6 @@ public class FirebaseUtil {
     private void setLoginResult(boolean success) {
         mLoginResult = success;
     }
-
 
     public Boolean isDoctor(FirebaseUser user) {
         return true;

@@ -87,17 +87,8 @@ public class LoginActivity extends AppCompatActivity {
         String email = mEmailEt.getText().toString();
         String password = mPasswordEt.getText().toString();
 
-        User user =  UserDatabaseHelper.getInstance(LoginActivity.this).userLogin(email,password);
-        if(user!=null){
-            if(user.getUserType().equals("Patient")){
-                Intent i = new Intent(LoginActivity.this, PatientActivity.class);
-                i.putExtra("PATIENT", user);
-                startActivity(i);
-            } else {
-                Intent i = new Intent(LoginActivity.this, DoctorActivity.class);
-                i.putExtra("DOCTOR", user);
-                startActivity(i);
-            }
+        if(mLoginViewModel.logIn(email, password) {
+
         } else {
             Toast.makeText(LoginActivity.this,"Invalid email or password", Toast.LENGTH_LONG).show();
         }

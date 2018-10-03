@@ -1,6 +1,6 @@
 package com.sepproject.medicalmanagementapp.model;
 
-public class test {
+public class Test {
 
     private int mId;
     private int mSenderId;

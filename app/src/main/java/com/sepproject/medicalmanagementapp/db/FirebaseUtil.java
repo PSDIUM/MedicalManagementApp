@@ -22,7 +22,7 @@ public class FirebaseUtil {
 
     private static final String DRUG_COLLECTION = "drugs";
 
-    private boolean mLoginResult;
+    private boolean mResult;
 
     // Singleton instance getter
     public static FirebaseUtil getInstance() {
@@ -46,26 +46,52 @@ public class FirebaseUtil {
     }
 
     public boolean logIn(String email, String password) {
+        // Reset result
+        setResult(false);
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
-                            setLoginResult(true);
+                            setResult(true);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            setLoginResult(false);
+                            setResult(false);
                         }
                     }
                 });
 
-        return mLoginResult;
+        return mResult;
     }
 
-    private void setLoginResult(boolean success) {
-        mLoginResult = success;
+    public boolean registerUser(String email, String password) {
+        // Reset result
+        setResult(false);
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            setResult(true);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            setResult(false);
+                        }
+                    }
+                });
+
+        return mResult;
+    }
+
+    private void setResult(boolean success) {
+        mResult = success;
     }
 
     public Boolean isDoctor(FirebaseUser user) {

@@ -15,10 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.activity.DoctorActivity;
-import com.sepproject.medicalmanagementapp.activity.NewUserActivity;
-import com.sepproject.medicalmanagementapp.activity.PatientActivity;
-import com.sepproject.medicalmanagementapp.model.User;
+import com.sepproject.medicalmanagementapp.activity.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -46,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         registerTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LoginActivity.this, NewUserActivity.class);
+                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivityForResult(i, REGISTER_REQUEST);
             }
         });
@@ -87,8 +84,9 @@ public class LoginActivity extends AppCompatActivity {
         String email = mEmailEt.getText().toString();
         String password = mPasswordEt.getText().toString();
 
-        if(mLoginViewModel.logIn(email, password) {
-
+        if (mLoginViewModel.logIn(email, password)) {
+            // Login success
+            Toast.makeText(LoginActivity.this,"Authenticated with Firebase", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(LoginActivity.this,"Invalid email or password", Toast.LENGTH_LONG).show();
         }

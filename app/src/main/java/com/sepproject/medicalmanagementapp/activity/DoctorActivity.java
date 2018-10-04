@@ -20,16 +20,14 @@ public class DoctorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
-        Intent i = getIntent();
-        mDoctor = (User) i.getSerializableExtra("DOCTOR");
 
         TextView doctorName = findViewById(R.id.doctor_name_tv);
         TextView doctorId = findViewById(R.id.doctor_id_tv);
 
-        doctorName.setText(mDoctor.getName());
-        doctorId.setText(String.valueOf(mDoctor.getId()));
+        //doctorName.setText(mDoctor.getName());
+        //doctorId.setText(String.valueOf(mDoctor.getId()));
 
-        Toast.makeText(this, mDoctor.getUserType() + ": Welcome " + mDoctor.getName(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, mDoctor.getUserType() + ": Welcome " + mDoctor.getName(), Toast.LENGTH_LONG).show();
 
         // Set onClickListener for Drug button
         Button drugBtn = findViewById(R.id.doctor_drugs_btn);

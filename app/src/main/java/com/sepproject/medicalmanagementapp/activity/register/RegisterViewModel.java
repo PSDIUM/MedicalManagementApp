@@ -8,7 +8,8 @@ public class RegisterViewModel extends ViewModel {
 
     FirebaseUtil mFirebaseUtil = FirebaseUtil.getInstance();
 
-    public boolean registerUser(String email, String password) {
-        return mFirebaseUtil.registerUser(email, password);
+    public void registerUser(String email, String password) {
+
+         mFirebaseUtil.registerUser(email, password);
     }
 }

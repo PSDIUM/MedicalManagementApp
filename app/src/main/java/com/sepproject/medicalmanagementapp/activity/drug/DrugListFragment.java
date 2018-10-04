@@ -14,13 +14,18 @@ import com.sepproject.medicalmanagementapp.R;
 import com.sepproject.medicalmanagementapp.db.FirebaseUtil;
 import com.sepproject.medicalmanagementapp.model.Drug;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * A placeholder fragment containing a simple view.
  */
 public class DrugListFragment extends Fragment {
 
     private DrugAdapter mAdapter;
-    private RecyclerView mRecyclerView;
+
+    @BindView(R.id.drug_recycler)
+    RecyclerView mRecyclerView;
 
     public DrugListFragment() {
     }
@@ -33,6 +38,10 @@ public class DrugListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.fragment_drug, container, false);
+        // Bind views with ButterKnife
+        ButterKnife.bind(this, view);
+
         // TODO: Move this into ViewModel
         FirebaseUtil firebaseUtil = FirebaseUtil.getInstance();
         Query query = firebaseUtil.getAllDrugQuery();
@@ -44,7 +53,6 @@ public class DrugListFragment extends Fragment {
                 .build();
 
         // Find and assign views
-        mRecyclerView = getActivity().findViewById(R.id.drug_recycler);
         mAdapter = new DrugAdapter(options);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -52,6 +60,6 @@ public class DrugListFragment extends Fragment {
 
         mRecyclerView.setAdapter(mAdapter);
 
-        return inflater.inflate(R.layout.fragment_drug, container, false);
+        return view;
     }
 }

@@ -14,4 +14,6 @@
     <string name="action_settings">Settings</string>
 
     <string name="toast_login_failed">Login failed. Please try again.</string>
+    <string name="toast_register_success">Successfully registered! Please login with your details.</string>
+    <string name="toast_register_failed">Registration failed. Please try again.</string>
 </resources>

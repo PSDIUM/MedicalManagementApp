@@ -59,12 +59,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onChanged(@Nullable Integer integer) {
                 if (integer != null && integer == 1) {
                     // Login OK
-                    Log.d(TAG, "Login listener OK");
                     startActivity(new Intent(getApplicationContext(), DoctorActivity.class));
                     finish();
                 } else if (integer != null && integer == 0) {
                     // Login failed
-                    Log.d(TAG, "Login listener FAIL");
+                    
                 }
             }
         });

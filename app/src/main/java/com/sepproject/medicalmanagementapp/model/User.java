@@ -1,20 +1,20 @@
 package com.sepproject.medicalmanagementapp.model;
 
-import java.io.Serializable;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
-public class User implements Serializable {
+@Entity(tableName = "patient_table")
+public class User {
 
+    @PrimaryKey(autoGenerate = true)
     private int mId;
     private String mName;
-    private String mDOB;
     private String mPassword;
     private String mEmail;
     private String mUserType;
 
-    public User(int id, String name, String DOB, String password, String email, String userType) {
-        mId = id;
+    public User(String name, String password, String email, String userType) {
         mName = name;
-        mDOB = DOB;
         mPassword = password;
         mEmail = email;
         mUserType = userType;
@@ -34,14 +34,6 @@ public class User implements Serializable {
 
     public void setName(String name) {
         mName = name;
-    }
-
-    public String getDOB() {
-        return mDOB;
-    }
-
-    public void setDOB(String DOB) {
-        mDOB = DOB;
     }
 
     public String getPassword() {

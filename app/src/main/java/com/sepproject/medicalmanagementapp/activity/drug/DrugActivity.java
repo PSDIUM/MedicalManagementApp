@@ -41,6 +41,7 @@ public class DrugActivity extends AppCompatActivity {
     private void changeFragmentTo(Fragment fragment) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.drug_framelayout, fragment);
+        ft.addToBackStack(null);
         ft.commit();
     }
 }

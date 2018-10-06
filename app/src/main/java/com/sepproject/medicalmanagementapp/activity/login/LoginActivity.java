@@ -63,7 +63,8 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                 } else if (integer != null && integer == 0) {
                     // Login failed
-                    
+                    Toast.makeText(getApplicationContext(), getString(R.string.toast_login_failed),
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });

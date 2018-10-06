@@ -46,10 +46,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onChanged(@Nullable Integer integer) {
                 if (integer != null && integer == 1) {
                     // Register OK
-                    Log.d(TAG, "Register listener OK");
+                    Toast.makeText(getApplicationContext(), getString(R.string.toast_register_success),
+                            Toast.LENGTH_LONG).show();
                 } else if (integer != null && integer == 0) {
                     // Register failed
-                    Log.d(TAG, "Register listener FAIL");
+                    Toast.makeText(getApplicationContext(), getString(R.string.toast_register_failed),
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -64,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else if (integer != null && integer == 0) {
                     // Login failed
                     Toast.makeText(getApplicationContext(), getString(R.string.toast_login_failed),
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.sepproject.medicalmanagementapp.model.User;
 
 public class FirebaseUtil {
 
@@ -102,5 +103,20 @@ public class FirebaseUtil {
 
     public Query getAllDrugQuery() {
         return mFirestore.collection(DRUG_COLLECTION);
+    }
+
+    @Nullable
+    public User getUser(String userType) {
+
+        if (mAuth.getCurrentUser() != null) {
+            return mFirestore.collection(userType.toLowerCase()).document(mAuth.getCurrentUser().getEmail())
+                    .get().getResult().toObject(User.class);
+        }
+
+        return null;
+    }
+
+    public void registerUser(User user) {
+        mFirestore.collection(user.getUserType().toLowerCase()).document(user.getEmail()).set(user);
     }
 }

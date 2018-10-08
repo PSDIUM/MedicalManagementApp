@@ -33,13 +33,22 @@
 
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9"
-        android:layout_margin="10dp"
         >
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/patient_lookup_rv"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
 
 </LinearLayout>

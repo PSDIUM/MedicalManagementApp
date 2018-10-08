@@ -109,6 +109,7 @@ public class FirebaseUtil {
     public User getUser(String userType) {
 
         if (mAuth.getCurrentUser() != null) {
+            //We are going to fix this
             return mFirestore.collection(userType.toLowerCase()).document(mAuth.getCurrentUser().getEmail())
                     .get().getResult().toObject(User.class);
         }

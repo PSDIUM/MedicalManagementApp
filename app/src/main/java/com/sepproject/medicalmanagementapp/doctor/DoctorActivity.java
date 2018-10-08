@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp;
+package com.sepproject.medicalmanagementapp.doctor;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

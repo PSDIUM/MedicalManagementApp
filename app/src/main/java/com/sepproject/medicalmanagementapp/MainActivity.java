@@ -1,11 +1,10 @@
-package com.sepproject.medicalmanagementapp.activity;
+package com.sepproject.medicalmanagementapp;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.activity.login.LoginActivity;
+import com.sepproject.medicalmanagementapp.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.activity.drug;
+package com.sepproject.medicalmanagementapp.drug;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

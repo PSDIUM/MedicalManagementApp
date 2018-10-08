@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.activity.test;
+package com.sepproject.medicalmanagementapp.test;
 
 public class ViewTestActivity {
 }

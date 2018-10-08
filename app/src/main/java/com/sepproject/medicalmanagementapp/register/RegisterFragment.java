@@ -16,8 +16,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.model.Doctor;
-import com.sepproject.medicalmanagementapp.model.Patient;
+import com.sepproject.medicalmanagementapp.db.FirebaseUtil;
+import com.sepproject.medicalmanagementapp.model.User;
 
 public class RegisterFragment extends Fragment {
 
@@ -74,13 +74,11 @@ public class RegisterFragment extends Fragment {
 
         switch(userType){
             case "Patient" :
-                Patient patient = new Patient(name, email, password, userType);
-                mRegisterViewModel.insertPatient(patient);
                 break;
             case "Doctor" :
-                Doctor doctor = new Doctor(name, email, password, userType);
-                Log.d("Register", "Doctor Registered");
-                mRegisterViewModel.insertDoctor(doctor);
+                User user = new User(name, password, email, userType);
+                mRegisterViewModel.registerUser(user);
+                mRegisterViewModel.registerUser(email, password);
                 break;
         }
 

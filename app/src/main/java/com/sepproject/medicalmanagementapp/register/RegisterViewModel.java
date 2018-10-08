@@ -1,15 +1,31 @@
 package com.sepproject.medicalmanagementapp.register;
 
-import android.arch.lifecycle.ViewModel;
+import android.app.Application;
+import android.arch.lifecycle.AndroidViewModel;
+import android.support.annotation.NonNull;
 
-import com.sepproject.medicalmanagementapp.db.FirebaseUtil;
+import com.sepproject.medicalmanagementapp.Patient.DoctorRepository;
+import com.sepproject.medicalmanagementapp.Patient.PatientRepository;
+import com.sepproject.medicalmanagementapp.model.Doctor;
+import com.sepproject.medicalmanagementapp.model.Patient;
 
-public class RegisterViewModel extends ViewModel {
+public class RegisterViewModel extends AndroidViewModel {
 
-    FirebaseUtil mFirebaseUtil = FirebaseUtil.getInstance();
 
-    public void registerUser(String email, String password) {
+    DoctorRepository mDoctorRepository;
+    PatientRepository mPatientRepository;
 
-        mFirebaseUtil.registerUser(email, password);
+    public RegisterViewModel(Application application) {
+        super(application);
+        mDoctorRepository = new DoctorRepository(getApplication());
+        mPatientRepository = new PatientRepository(getApplication());
+    }
+
+    public void insertDoctor(Doctor doctor){
+        mDoctorRepository.insert(doctor);
+    }
+
+    public void insertPatient(Patient patient){
+        mPatientRepository.insert(patient);
     }
 }

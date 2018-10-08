@@ -11,15 +11,27 @@ import com.sepproject.medicalmanagementapp.model.User;
 
 import java.util.List;
 
-public class NavigationViewModel extends ViewModel {
-
+public class NavigationViewModel extends ViewModel implements FirebaseUtil.GetTaskResultListener {
 
     FirebaseUtil mFirebaseUtil = FirebaseUtil.getInstance();
-    private MutableLiveData<User> mUser;
+    private MutableLiveData<User> mUser = new MutableLiveData<>();
 
-    public LiveData<User> getUser(String userType){
-        mUser.setValue(mFirebaseUtil.getUser(userType));
+    public LiveData<User> getUserLiveData(){
         return mUser;
     }
 
+    NavigationViewModel() {
+        mFirebaseUtil.setGetTaskResultListener(this);
+    }
+
+    public void getUser(String userType) {
+
+        mFirebaseUtil.getUser(userType);
+    }
+
+    @Override
+    public void OnGetTaskResultReceived(User user) {
+
+        mUser.postValue(user);
+    }
 }

@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.sepproject.medicalmanagementapp.model.User;
@@ -24,6 +25,8 @@ public class FirebaseUtil {
     private static final String DRUG_COLLECTION = "drugs";
 
     private TaskResultListener mResultListener;
+    private GetTaskResultListener mGetResultListener;
+    private User mCurrentUser;
 
     // Singleton instance getter
     public static FirebaseUtil getInstance() {
@@ -49,10 +52,20 @@ public class FirebaseUtil {
         void OnRegisterTaskResultReceived(boolean result);
     }
 
+    public interface GetTaskResultListener {
+
+        void OnGetTaskResultReceived(User user);
+    }
+
     // Set Result Listener
     public void setnTaskResultListener(TaskResultListener listener) {
 
         this.mResultListener = listener;
+    }
+
+    public void setGetTaskResultListener(GetTaskResultListener listener) {
+
+        this.mGetResultListener = listener;
     }
 
     @Nullable
@@ -106,16 +119,25 @@ public class FirebaseUtil {
     }
 
     @Nullable
-    public User getUser(String userType) {
+    public void getUser(String userType) {
 
         if (mAuth.getCurrentUser() != null) {
             //We are going to fix this
-            return mFirestore.collection(userType.toLowerCase()).document(mAuth.getCurrentUser().getEmail())
-                    .get().getResult().toObject(User.class);
+            mFirestore.collection(userType.toLowerCase()).document(mAuth.getCurrentUser().getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    User user = task.getResult().toObject(User.class);
+                    if (task.isSuccessful()) {
+                        mGetResultListener.OnGetTaskResultReceived(user);
+                    } else {
+                        mGetResultListener.OnGetTaskResultReceived(user);
+                    }
+                }
+            });
         }
-
-        return null;
     }
+
+
 
     public void registerUser(User user) {
         mFirestore.collection(user.getUserType().toLowerCase()).document(user.getEmail()).set(user);

@@ -3,6 +3,7 @@ package com.sepproject.medicalmanagementapp.navigation;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -27,16 +28,27 @@ public class DoctorHomeFragment extends Fragment {
 
         mNameTv = view.findViewById(R.id.doctor_name_tv);
         mIdTv = view.findViewById(R.id.doctor_id_tv);
+        Handler handler = new Handler();
 
+        mNavigationViewModel.getUser("Doctor");
 
-        mNavigationViewModel.getUser("doctor").observe(getActivity(), new Observer<User>() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setUser();
+            }
+        },1000);
+
+        return view;
+    }
+
+    private void setUser(){
+        mNavigationViewModel.getUserLiveData().observe(this, new Observer<User>() {
             @Override
             public void onChanged(@Nullable User user) {
                 mNameTv.setText(user.getName());
-                mIdTv.setText(user.getId());
+                mIdTv.setText(String.valueOf(user.getId()));
             }
         });
-
-        return view;
     }
 }

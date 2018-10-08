@@ -13,7 +13,7 @@
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_weight="1"
@@ -51,18 +51,49 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            >
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutContainer"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.2">
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.6">
 
-            <Button
-                android:id="@+id/doctor_drugs_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Drugs"/>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
 
+                    <Button
+                        android:id="@+id/doctor_drugs_btn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Drugs"/>
+                    <Button
+                        android:id="@+id/doctor_new_test_btn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="New Test"/>
+                    <Button
+                        android:id="@+id/doctor_view_test_btn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="View Tests"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.2">
+            </RelativeLayout>
         </LinearLayout>
 
     </LinearLayout>

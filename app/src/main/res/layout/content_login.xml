@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.sepproject.medicalmanagementapp.login.LoginActivity"
+    tools:context=".login.LoginActivity"
     tools:showIn="@layout/activity_login"
     android:orientation="vertical"
     >
@@ -41,11 +41,19 @@
         android:gravity="center_horizontal"
         android:layout_weight="1">
 
+        <Spinner
+            android:id="@+id/user_spinner_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            >
+        </Spinner>
         <EditText
             android:id="@+id/email_et"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:hint="Email"
             />
 
@@ -73,13 +81,15 @@
         android:orientation="horizontal"
 
         android:layout_weight="0"
-        android:gravity="center">
+        android:gravity="center"
+        >
         <Button
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Login" />
+            android:text="Login"
+            />
     </LinearLayout>
 
 </LinearLayout>

@@ -11,6 +11,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -26,10 +27,23 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-media-compat:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:support-vector-drawable:28.0.0'
     implementation 'com.android.support:cardview-v7:28.0.0'
+
+    // 64K limit bypass for pre-5.0 (API 21)
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // ButterKnife library and annotations
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // FirebaseUI for Cloud Firestore
+    implementation 'com.firebaseui:firebase-ui-firestore:4.2.0'
+
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.firebase:firebase-auth:16.0.4'
     testImplementation 'junit:junit:4.12'

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.R;
 import com.sepproject.medicalmanagementapp.doctor.DoctorActivity;
+import com.sepproject.medicalmanagementapp.navigation.DoctorNavigationActivity;
 import com.sepproject.medicalmanagementapp.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -58,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onChanged(@Nullable Integer integer) {
                 if (integer != null && integer == 1) {
                     // Login OK
-                    startActivity(new Intent(getApplicationContext(), DoctorActivity.class));
+                    startActivity(new Intent(getApplicationContext(), DoctorNavigationActivity.class));
                     finish();
                 } else if (integer != null && integer == 0) {
                     // Login failed

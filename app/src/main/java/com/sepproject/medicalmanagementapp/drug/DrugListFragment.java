@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.activity.drug;
+package com.sepproject.medicalmanagementapp.drug;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;

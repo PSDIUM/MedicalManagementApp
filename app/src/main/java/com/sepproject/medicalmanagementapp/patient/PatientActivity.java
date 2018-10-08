@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.activity;
+package com.sepproject.medicalmanagementapp.patient;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -61,7 +61,7 @@ public class PatientActivity extends AppCompatActivity {
         patientName.setText("Name: " + mPatient.getName());
         patientId.setText("ID: " + String.valueOf(mPatient.getId()));
         patTitle.setText("Welcome " + mPatient.getName());
-        patDOB.setText("DOB: " + mPatient.getDOB());
+        //patDOB.setText("DOB: " + mPatient.getDOB());
     }
 
 }

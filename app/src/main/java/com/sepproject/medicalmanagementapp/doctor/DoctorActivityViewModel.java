@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.activity;
+package com.sepproject.medicalmanagementapp.doctor;
 
 import android.arch.lifecycle.ViewModel;
 

@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.activity;
+package com.sepproject.medicalmanagementapp.doctor;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.activity.drug.DrugActivity;
+import com.sepproject.medicalmanagementapp.drug.DrugActivity;
 import com.sepproject.medicalmanagementapp.model.User;
 
 public class DoctorActivity extends AppCompatActivity {

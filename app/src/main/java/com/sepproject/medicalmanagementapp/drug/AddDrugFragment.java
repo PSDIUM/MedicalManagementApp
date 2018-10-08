@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.activity.drug;
+package com.sepproject.medicalmanagementapp.drug;
 
 
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.activity.login;
+package com.sepproject.medicalmanagementapp.login;
 
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
@@ -6,11 +6,8 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,8 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.activity.DoctorActivity;
-import com.sepproject.medicalmanagementapp.activity.register.RegisterActivity;
+import com.sepproject.medicalmanagementapp.doctor.DoctorActivity;
+import com.sepproject.medicalmanagementapp.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

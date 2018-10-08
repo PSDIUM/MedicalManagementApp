@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.activity.register;
+package com.sepproject.medicalmanagementapp.register;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.model.User;
 
 public class RegisterActivity extends AppCompatActivity {
 

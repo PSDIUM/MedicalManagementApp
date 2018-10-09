@@ -23,6 +23,30 @@
           }
         },
         {
+          "client_id": "528202089790-hho7a1850qmrjtidtl97qmoflg2t01if.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sepproject.medicalmanagementapp",
+            "certificate_hash": "4f5c900e3826c3a638d9625070d87fcf22cfd5bb"
+          }
+        },
+        {
+          "client_id": "528202089790-qiir40qqqj48ih0fq5bi3f1k5nkl6tif.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sepproject.medicalmanagementapp",
+            "certificate_hash": "b166646c30e23fa0be80a528d2cf331b086ed4c0"
+          }
+        },
+        {
+          "client_id": "528202089790-ravnu56rl3k7jv3dc91ggqjtctpv1nrh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sepproject.medicalmanagementapp",
+            "certificate_hash": "f8666a3ba6d8d5af747eea0034e2fcef1b6cbd67"
+          }
+        },
+        {
           "client_id": "528202089790-cdf2lq7e2p9c41cvsdv4tnnou0m9j4av.apps.googleusercontent.com",
           "client_type": 3
         }

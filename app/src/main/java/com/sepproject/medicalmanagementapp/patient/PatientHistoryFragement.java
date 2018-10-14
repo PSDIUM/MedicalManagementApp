@@ -1,4 +1,6 @@
-package com.sepproject.medicalmanagementapp.navigation;
+package com.sepproject.medicalmanagementapp.patient;
 
 public class PatientHistoryFragement {
+
+
 }

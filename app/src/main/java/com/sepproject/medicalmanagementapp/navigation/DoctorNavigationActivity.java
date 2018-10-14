@@ -52,7 +52,7 @@ public class DoctorNavigationActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager){
         mAdaptor = new ViewStatePagerAdaptor(getSupportFragmentManager());
         mAdaptor.addFragement(new DoctorHomeFragment(), "Home Fragment");
-        //mAdaptor.addFragement(new PatientLookupFragment(), "Patient Lookup Fragment");
+        mAdaptor.addFragement(new PatientLookupFragment(), "Patient Lookup Fragment");
         viewPager.setAdapter(mAdaptor);
     }
 

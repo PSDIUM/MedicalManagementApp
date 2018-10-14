@@ -1,8 +1,6 @@
-/*
 package com.sepproject.medicalmanagementapp.navigation;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sepproject.medicalmanagementapp.R;
+import com.sepproject.medicalmanagementapp.model.User;
 
 import java.util.List;
 
@@ -38,7 +37,7 @@ public class LookupListAdaptor extends RecyclerView.Adapter<LookupListAdaptor.Lo
     }
 
     private final LayoutInflater mInflater;
-    private List<Patient> mPatientList;
+    private List<User> mUserList;
     private Context mContext;
     private OnClickListener mListener;
 
@@ -56,8 +55,8 @@ public class LookupListAdaptor extends RecyclerView.Adapter<LookupListAdaptor.Lo
 
     @Override
     public void onBindViewHolder(LookupViewHolder holder, int position) {
-        if (mPatientList != null) {
-            Patient current = mPatientList.get(position);
+        if (mUserList != null) {
+            User current = mUserList.get(position);
             holder.title.setText(current.getName());
             holder.navigation.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -73,16 +72,15 @@ public class LookupListAdaptor extends RecyclerView.Adapter<LookupListAdaptor.Lo
 
     @Override
     public int getItemCount() {
-        if(mPatientList!=null){
-            return mPatientList.size();
+        if(mUserList !=null){
+            return mUserList.size();
         }
         else return 0;
     }
 
-    public void setPatients(List<Patient> patients){
-        mPatientList = patients;
+    public void setPatients(List<User> patients){
+        mUserList = patients;
         notifyDataSetChanged();
     }
 }
 
-*/

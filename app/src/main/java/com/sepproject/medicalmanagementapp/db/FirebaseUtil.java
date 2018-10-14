@@ -137,7 +137,9 @@ public class FirebaseUtil {
         }
     }
 
-
+    public Query getAllPatients(){
+        return mFirestore.collection("patient");
+    }
 
     public void registerUser(User user) {
         mFirestore.collection(user.getUserType().toLowerCase()).document(user.getEmail()).set(user);

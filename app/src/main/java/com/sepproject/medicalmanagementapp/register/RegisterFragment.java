@@ -72,15 +72,9 @@ public class RegisterFragment extends Fragment {
         String password = mPasswordEt.getText().toString();
         String userType = mSpinner.getSelectedItem().toString();
 
-        switch(userType){
-            case "Patient" :
-                break;
-            case "Doctor" :
-                User user = new User(name, password, email, userType);
-                mRegisterViewModel.registerUser(user);
-                mRegisterViewModel.registerUser(email, password);
-                break;
-        }
+        User user = new User(name, password, email, userType);
+        mRegisterViewModel.registerUser(user);
+        mRegisterViewModel.registerUser(email, password);
 
         getActivity().finish();
     }

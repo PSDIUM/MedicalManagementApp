@@ -48,7 +48,7 @@ public class PatientActivity extends AppCompatActivity {
 
         Toast.makeText(this, mPatient.getUserType() + ": Welcome " + mPatient.getName(), Toast.LENGTH_LONG).show();
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 

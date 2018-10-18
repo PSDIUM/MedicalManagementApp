@@ -1,11 +1,8 @@
 package com.sepproject.medicalmanagementapp.navigation;
 
-import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
-
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -17,14 +14,14 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-public class NavigationViewModel extends ViewModel implements FirebaseUtil.GetTaskResultListener {
+public class DoctorNavigationViewModel extends ViewModel implements FirebaseUtil.GetTaskResultListener {
 
     FirebaseUtil mFirebaseUtil = FirebaseUtil.getInstance();
     private MutableLiveData<User> mUser = new MutableLiveData<>();
     private MutableLiveData<List<User>> mAllPatients = new MutableLiveData<>();
     private MutableLiveData<List<User>> mPatients = new MutableLiveData<>();
 
-    NavigationViewModel() {
+    DoctorNavigationViewModel() {
         mFirebaseUtil.setGetTaskResultListener(this);
         mFirebaseUtil.getAllPatients().addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override

@@ -1,6 +1,7 @@
 package com.sepproject.medicalmanagementapp.navigation;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,7 +19,7 @@ import java.util.List;
 public class LookupListAdaptor extends RecyclerView.Adapter<LookupListAdaptor.LookupViewHolder> {
 
     public interface OnClickListener {
-        void displayHistory(String title);
+        void displayHistory(String email);
     }
 
     public class LookupViewHolder extends RecyclerView.ViewHolder {
@@ -56,12 +57,12 @@ public class LookupListAdaptor extends RecyclerView.Adapter<LookupListAdaptor.Lo
     @Override
     public void onBindViewHolder(LookupViewHolder holder, int position) {
         if (mUserList != null) {
-            User current = mUserList.get(position);
+            final User current = mUserList.get(position);
             holder.title.setText(current.getName());
             holder.navigation.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("History", "Going to patient history");
+                    mListener.displayHistory(current.getEmail());
                 }
             });
         } else {

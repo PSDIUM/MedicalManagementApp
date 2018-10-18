@@ -3,9 +3,9 @@ package com.sepproject.medicalmanagementapp.navigation;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,11 +24,18 @@ import java.util.List;
 public class PatientLookupFragment extends Fragment implements LookupListAdaptor.OnClickListener {
 
 
-    private NavigationViewModel mNavigationViewModel;
+    public interface  LookupListener {
+        public void changeFragment(int position, Bundle args);
+    }
+
+    private static final int HISTORY_POSITION = 2;
+
+    private DoctorNavigationViewModel mDoctorNavigationViewModel;
     private LookupListAdaptor mAdapter;
     private CountDownTimer mTimer;
     private EditText mSearchEt;
     private String mSearchPatient;
+    private LookupListener mCallback;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,9 +48,9 @@ public class PatientLookupFragment extends Fragment implements LookupListAdaptor
         recyclerView.setAdapter(mAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mNavigationViewModel = ViewModelProviders.of(getActivity()).get(NavigationViewModel.class);
+        mDoctorNavigationViewModel = ViewModelProviders.of(getActivity()).get(DoctorNavigationViewModel.class);
 
-        mNavigationViewModel.getAllPatients().observe(this, new Observer<List<User>>() {
+        mDoctorNavigationViewModel.getAllPatients().observe(this, new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> patients) {
                 mAdapter.setPatients(patients);
@@ -107,7 +114,7 @@ public class PatientLookupFragment extends Fragment implements LookupListAdaptor
      * RecyclerView is made visible and updated when the data within the list of categories is changed.
      */
     private void searchForPatient(){
-        mNavigationViewModel.getPatients(mSearchPatient).observe(this, new Observer<List<User>>() {
+        mDoctorNavigationViewModel.getPatients(mSearchPatient).observe(this, new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> patients) {
                 mAdapter.setPatients(patients);
@@ -115,9 +122,20 @@ public class PatientLookupFragment extends Fragment implements LookupListAdaptor
         });
     }
 
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try{
+            mCallback = (LookupListener) context;
+        } catch(ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement LookupListener");
+        }
+    }
 
     @Override
-    public void displayHistory(String title) {
-
+    public void displayHistory(String email) {
+        Bundle args = new Bundle();
+        args.putString("USER_EMAIL", email);
+        mCallback.changeFragment(HISTORY_POSITION, args);
     }
 }

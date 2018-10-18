@@ -10,12 +10,14 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.sepproject.medicalmanagementapp.R;
+import com.sepproject.medicalmanagementapp.patient.PatientHistoryFragement;
 import com.sepproject.medicalmanagementapp.util.ViewStatePagerAdaptor;
 
-public class DoctorNavigationActivity extends AppCompatActivity {
+public class DoctorNavigationActivity extends AppCompatActivity implements PatientLookupFragment.LookupListener {
 
     private static final int HOME_POSITION = 0;
     private static final int LOOKUP_POSITION = 1;
+    private static final int HISTORY_POSITION = 2;
 
     private ViewStatePagerAdaptor mAdaptor;
 
@@ -56,4 +58,13 @@ public class DoctorNavigationActivity extends AppCompatActivity {
         viewPager.setAdapter(mAdaptor);
     }
 
+    @Override
+    public void changeFragment(int position, Bundle args) {
+        PatientHistoryFragement frag = new PatientHistoryFragement();
+        frag.setArguments(args);
+        this.getSupportFragmentManager().beginTransaction()
+                .replace(R.id.patient_lookup_container, frag,"PatientHistoryFragment")
+                .addToBackStack(null)
+                .commit();
+    }
 }

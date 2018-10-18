@@ -16,7 +16,7 @@ import com.sepproject.medicalmanagementapp.model.User;
 
 public class DoctorHomeFragment extends Fragment {
 
-    NavigationViewModel mNavigationViewModel;
+    DoctorNavigationViewModel mDoctorNavigationViewModel;
 
     private TextView mNameTv;
     private TextView mIdTv;
@@ -24,13 +24,13 @@ public class DoctorHomeFragment extends Fragment {
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_doctor_home, container, false);
-        mNavigationViewModel = ViewModelProviders.of(getActivity()).get(NavigationViewModel.class);
+        mDoctorNavigationViewModel = ViewModelProviders.of(getActivity()).get(DoctorNavigationViewModel.class);
 
         mNameTv = view.findViewById(R.id.doctor_name_tv);
         mIdTv = view.findViewById(R.id.doctor_id_tv);
         Handler handler = new Handler();
 
-        mNavigationViewModel.getUser("Doctor");
+        mDoctorNavigationViewModel.getUser("Doctor");
 
         handler.postDelayed(new Runnable() {
             @Override
@@ -43,7 +43,7 @@ public class DoctorHomeFragment extends Fragment {
     }
 
     private void setUser(){
-        mNavigationViewModel.getUserLiveData().observe(this, new Observer<User>() {
+        mDoctorNavigationViewModel.getUserLiveData().observe(this, new Observer<User>() {
             @Override
             public void onChanged(@Nullable User user) {
                 mNameTv.setText(user.getName());

@@ -137,6 +137,21 @@ public class FirebaseUtil {
         }
     }
 
+    @Nullable
+    public void setPatient(String email){
+        mFirestore.collection("patient").document(email).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                User user = task.getResult().toObject(User.class);
+                if (task.isSuccessful()) {
+                    mGetResultListener.OnGetTaskResultReceived(user);
+                } else {
+                    mGetResultListener.OnGetTaskResultReceived(user);
+                }
+            }
+        });
+    }
+
     public Query getAllPatients(){
         return mFirestore.collection("patient");
     }

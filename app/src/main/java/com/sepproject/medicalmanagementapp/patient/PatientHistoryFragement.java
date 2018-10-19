@@ -5,6 +5,8 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.sepproject.medicalmanagementapp.R;
 import com.sepproject.medicalmanagementapp.model.User;
+import com.sepproject.medicalmanagementapp.navigation.LookupListAdaptor;
 
 public class PatientHistoryFragement extends Fragment {
 
@@ -22,6 +25,8 @@ public class PatientHistoryFragement extends Fragment {
     private TextView mLastName;
     private TextView mId;
     private TextView mAppointmentTitle;
+    private RecyclerView mRecyclerView;
+    private AppointmentListAdaptor mAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +41,11 @@ public class PatientHistoryFragement extends Fragment {
         mLastName = view.findViewById(R.id.patient_history_last_name);
         mId = view.findViewById(R.id.patient_history_id);
         mAppointmentTitle = view.findViewById(R.id.patient_history_appointment_title);
+
+        RecyclerView recyclerView = view.findViewById(R.id.patient_history_rv);
+        mAdapter = new AppointmentListAdaptor(getActivity());
+        recyclerView.setAdapter(mAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         new Handler().postDelayed(new Runnable() {
             @Override

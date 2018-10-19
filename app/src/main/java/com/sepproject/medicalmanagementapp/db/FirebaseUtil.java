@@ -156,6 +156,8 @@ public class FirebaseUtil {
         return mFirestore.collection("patient");
     }
 
+    public Query getAllAppointments() { return mFirestore.collection("history"); }
+
     public void registerUser(User user) {
         mFirestore.collection(user.getUserType().toLowerCase()).document(user.getEmail()).set(user);
     }

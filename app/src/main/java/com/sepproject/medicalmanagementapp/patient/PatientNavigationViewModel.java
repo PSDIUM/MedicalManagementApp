@@ -12,6 +12,10 @@ public class PatientNavigationViewModel extends ViewModel implements FirebaseUti
     private FirebaseUtil mFirebaseUtil = FirebaseUtil.getInstance();
     private MutableLiveData<User> mPatient = new MutableLiveData<>();
 
+    PatientNavigationViewModel() {
+        mFirebaseUtil.setGetTaskResultListener(this);
+    }
+
     public void setPatient(String email){
         mFirebaseUtil.setPatient(email);
     }

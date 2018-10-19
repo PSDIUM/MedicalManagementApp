@@ -12,7 +12,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.sepproject.medicalmanagementapp.model.History;
 import com.sepproject.medicalmanagementapp.model.User;
+
+import java.util.List;
 
 public class FirebaseUtil {
 
@@ -156,9 +159,16 @@ public class FirebaseUtil {
         return mFirestore.collection("patient");
     }
 
-    public Query getAllAppointments() { return mFirestore.collection("history"); }
+    public Query getAllPatientAppointments(String email){
+        return mFirestore.collection("history").document(email).collection("appointments");
+    }
 
     public void registerUser(User user) {
         mFirestore.collection(user.getUserType().toLowerCase()).document(user.getEmail()).set(user);
     }
+
+    public void addAppointment(User user, History history){
+        mFirestore.collection("history").document(user.getEmail()).collection("appointments").document(history.getDate() + " " + history.getTime()).set(history);
+    }
+
 }

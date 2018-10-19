@@ -19,22 +19,10 @@ public class PatientNavigationViewModel extends ViewModel implements FirebaseUti
 
     private FirebaseUtil mFirebaseUtil = FirebaseUtil.getInstance();
     private MutableLiveData<User> mPatient = new MutableLiveData<>();
-    private MutableLiveData<History> mAllAppointments = new MutableLiveData<>();
+    private MutableLiveData<List<History>> mAllAppointments = new MutableLiveData<>();
 
     PatientNavigationViewModel() {
         mFirebaseUtil.setGetTaskResultListener(this);
-        mFirebaseUtil.getAllAppointments().addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                if(e!=null){
-                    e.printStackTrace();
-                    return;
-                }
-                if(queryDocumentSnapshots!=null){
-                    mAllAppointments.setValue(queryDocumentSnapshots.toObjects(History.class));
-                }
-            }
-        });
     }
 
     public void setPatient(String email){
@@ -46,7 +34,26 @@ public class PatientNavigationViewModel extends ViewModel implements FirebaseUti
     }
 
     public LiveData<List<History>> getAllAppointments(){
+        return mAllAppointments;
+    }
 
+    public void addAppointment(User user, History appointment){
+        mFirebaseUtil.addAppointment(user, appointment);
+    }
+
+    public void setPatientAppointments(String email){
+        mFirebaseUtil.getAllPatientAppointments(email).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if(e!=null){
+                    e.printStackTrace();
+                    return;
+                }
+                if(queryDocumentSnapshots!=null){
+                    mAllAppointments.setValue(queryDocumentSnapshots.toObjects(History.class));
+                }
+            }
+        });
     }
 
     @Override

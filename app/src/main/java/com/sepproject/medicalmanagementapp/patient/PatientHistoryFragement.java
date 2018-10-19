@@ -21,6 +21,7 @@ public class PatientHistoryFragement extends Fragment {
     private TextView mFirstName;
     private TextView mLastName;
     private TextView mId;
+    private TextView mAppointmentTitle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,20 +29,20 @@ public class PatientHistoryFragement extends Fragment {
         Bundle args = getArguments();
 
         mPatientNavigationViewModel = ViewModelProviders.of(getActivity()).get(PatientNavigationViewModel.class);
-        Log.d("History", "SHould work" + args.getString("USER_EMAIL"));
         mPatientNavigationViewModel.setPatient(args.getString("USER_EMAIL"));
 
         mTitle = view.findViewById(R.id.patient_history_title);
         mFirstName = view.findViewById(R.id.patient_history_first_name);
         mLastName = view.findViewById(R.id.patient_history_last_name);
         mId = view.findViewById(R.id.patient_history_id);
+        mAppointmentTitle = view.findViewById(R.id.patient_history_appointment_title);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 setPatient();
             }
-        },1000);
+        },500);
 
         return view;
     }
@@ -59,6 +60,7 @@ public class PatientHistoryFragement extends Fragment {
         String[] patientName = patient.getName().split(" ");
         mFirstName.setText(patientName[0]);
         mLastName.setText(patientName[1]);
-        mId.setText(patient.getId());
+        mId.setText(String.valueOf(patient.getId()));
+        mAppointmentTitle.setText(patient.getName() + "'s \n Previous Appointments");
     }
 }

@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".appointment.AddAppointmentActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,9 +24,9 @@
         <activity
             android:name=".patient.PatientActivity"
             android:label="@string/title_activity_patient" />
-        <activity android:name=".doctor.DoctorActivity"></activity>
-        <activity android:name=".register.RegisterActivity"></activity>
-        <activity android:name=".navigation.DoctorNavigationActivity"></activity>
+        <activity android:name=".doctor.DoctorActivity" />
+        <activity android:name=".register.RegisterActivity" />
+        <activity android:name=".navigation.DoctorNavigationActivity" />
     </application>
 
 </manifest>

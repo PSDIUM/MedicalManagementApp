@@ -17,7 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.navigation.DoctorNavigationActivity;
+import com.sepproject.medicalmanagementapp.doctor.DoctorNavigationActivity;
+
 import com.sepproject.medicalmanagementapp.patient.PatientNavigationActivity;
 import com.sepproject.medicalmanagementapp.register.RegisterActivity;
 

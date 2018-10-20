@@ -1,4 +1,4 @@
-package com.sepproject.medicalmanagementapp.navigation;
+package com.sepproject.medicalmanagementapp.doctor;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;

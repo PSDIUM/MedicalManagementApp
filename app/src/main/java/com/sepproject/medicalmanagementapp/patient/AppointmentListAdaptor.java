@@ -1,18 +1,14 @@
 package com.sepproject.medicalmanagementapp.patient;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sepproject.medicalmanagementapp.R;
 import com.sepproject.medicalmanagementapp.model.History;
-import com.sepproject.medicalmanagementapp.model.User;
-import com.sepproject.medicalmanagementapp.navigation.LookupListAdaptor;
 
 import java.util.List;
 

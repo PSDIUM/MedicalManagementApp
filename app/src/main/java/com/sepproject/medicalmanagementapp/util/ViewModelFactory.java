@@ -1,6 +1,11 @@
 package com.sepproject.medicalmanagementapp.util;
 
+import android.app.Application;
+import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider.NewInstanceFactory;
+import android.support.annotation.NonNull;
+
+import com.sepproject.medicalmanagementapp.edit.EditDetailsViewModel;
 
 public class ViewModelFactory extends NewInstanceFactory {
 
@@ -20,12 +25,8 @@ public class ViewModelFactory extends NewInstanceFactory {
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
 
-        if (modelClass == PortalViewViewModel.class) {
-            return (T) new PortalViewViewModel((Application) mParams[0], (String) mParams[1]);
-        } else if (modelClass == InventoryViewViewModel.class) {
-            return (T) new InventoryViewViewModel((String) mParams[0], (String) mParams[1]);
-        } else if (modelClass == ManageInventoryViewModel.class) {
-            return (T) new ManageInventoryViewModel((String) mParams[0]);
+        if (modelClass == EditDetailsViewModel.class) {
+            return (T) new EditDetailsViewModel((String) mParams[0]);
         } else {
             return super.create(modelClass);
         }

@@ -72,6 +72,7 @@
                         android:layout_height="30dp"
                         android:layout_alignEnd="@id/patient_history_title"
                         android:layout_centerInParent="true"
+                        android:clickable="true"
                         android:layout_marginRight="10dp"
                         android:src="@drawable/ic_edit"
 

@@ -27,6 +27,7 @@ import java.util.List;
 public class PatientHistoryFragment extends Fragment {
 
     private static final int EDIT_DETAILS_REQUEST_CODE = 3;
+
     private PatientNavigationViewModel mPatientNavigationViewModel;
     private TextView mTitle;
     private TextView mFirstName;
@@ -86,6 +87,7 @@ public class PatientHistoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), EditDetailsActivity.class);
+                i.putExtra(Intent.EXTRA_EMAIL, mCurrentUser.getEmail());
                 startActivityForResult(i,EDIT_DETAILS_REQUEST_CODE);
             }
         });

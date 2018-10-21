@@ -76,7 +76,7 @@ public class DrugListFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getContext(), AddDrugActivity.class));
             }
         });
     }

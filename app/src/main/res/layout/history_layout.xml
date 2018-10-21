@@ -49,17 +49,35 @@
                 android:orientation="vertical"
                 android:layout_margin="8dp">
 
-                <TextView
-                    android:id="@+id/patient_history_title"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:textSize="26dp"
-                    android:text="Patient Name"
-                    android:textStyle="bold"
-                    android:padding="10dp"
-                    />
+                    android:orientation="horizontal"
+                    >
 
+                    <TextView
+                        android:id="@+id/patient_history_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="26dp"
+                        android:text="Patient Name"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        android:layout_weight="1"
+                        />
+                    <ImageView
+                        android:id="@+id/patient_history_edit_iv"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignEnd="@id/patient_history_title"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_edit"
+
+                        />
+
+                </RelativeLayout>
 
                 <TableLayout
                     android:layout_width="wrap_content"

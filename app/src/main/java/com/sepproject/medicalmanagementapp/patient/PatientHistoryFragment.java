@@ -13,10 +13,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sepproject.medicalmanagementapp.R;
 import com.sepproject.medicalmanagementapp.appointment.AddAppointmentActivity;
+import com.sepproject.medicalmanagementapp.edit.EditDetailsActivity;
 import com.sepproject.medicalmanagementapp.model.History;
 import com.sepproject.medicalmanagementapp.model.User;
 
@@ -24,14 +26,15 @@ import java.util.List;
 
 public class PatientHistoryFragment extends Fragment {
 
+    private static final int EDIT_DETAILS_REQUEST_CODE = 3;
     private PatientNavigationViewModel mPatientNavigationViewModel;
     private TextView mTitle;
     private TextView mFirstName;
     private TextView mLastName;
     private TextView mId;
     private TextView mAppointmentTitle;
+    private ImageView mEditIv;
     private User mCurrentUser;
-    private RecyclerView mRecyclerView;
     private AppointmentListAdaptor mAdapter;
 
     @Override
@@ -48,6 +51,7 @@ public class PatientHistoryFragment extends Fragment {
         mLastName = view.findViewById(R.id.patient_history_last_name);
         mId = view.findViewById(R.id.patient_history_id);
         mAppointmentTitle = view.findViewById(R.id.patient_history_appointment_title);
+        mEditIv = view.findViewById(R.id.patient_history_edit_iv);
         FloatingActionButton fab = view.findViewById(R.id.patient_history_fb);
 
         RecyclerView recyclerView = view.findViewById(R.id.patient_history_rv);
@@ -75,6 +79,14 @@ public class PatientHistoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startAddAppointment();
+            }
+        });
+        
+        mEditIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), EditDetailsActivity.class);
+                startActivityForResult(i,EDIT_DETAILS_REQUEST_CODE);
             }
         });
 

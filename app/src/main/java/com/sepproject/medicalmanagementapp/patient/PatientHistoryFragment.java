@@ -17,13 +17,12 @@ import android.widget.TextView;
 
 import com.sepproject.medicalmanagementapp.R;
 import com.sepproject.medicalmanagementapp.appointment.AddAppointmentActivity;
-import com.sepproject.medicalmanagementapp.appointment.AddAppointmentFragment;
 import com.sepproject.medicalmanagementapp.model.History;
 import com.sepproject.medicalmanagementapp.model.User;
 
 import java.util.List;
 
-public class PatientHistoryFragement extends Fragment {
+public class PatientHistoryFragment extends Fragment {
 
     private PatientNavigationViewModel mPatientNavigationViewModel;
     private TextView mTitle;
@@ -90,9 +89,6 @@ public class PatientHistoryFragement extends Fragment {
                 setPatientDetails(patient);
             }
         });
-    }
-
-    private void setAppointments(){
     }
 
     private void setPatientDetails(User patient){

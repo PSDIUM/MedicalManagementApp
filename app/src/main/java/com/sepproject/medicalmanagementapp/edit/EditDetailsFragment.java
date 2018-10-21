@@ -11,30 +11,48 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.patient.PatientNavigationViewModel;
+import com.sepproject.medicalmanagementapp.model.User;
 
-public class EditDetailsFragment extends Fragment {
+public class EditDetailsFragment extends Fragment implements EditDetailsViewModel.OnResultListener {
 
-    PatientNavigationViewModel mPatientNavigationViewModel;
+    EditDetailsViewModel mViewModel;
 
     private TextView mTitle;
     private EditText mFirstNameEt;
     private EditText mLastNameEt;
     private EditText mDobEt;
 
+    private String[] mNameSplit;
+
+    @Override
+    public void OnUserReceived(User user) {
+        // Set the EditTexts
+        mNameSplit = user.getName().split(" ", 2);
+        mFirstNameEt.setText(mNameSplit[0]);
+        mLastNameEt.setText(mNameSplit[1]);
+    }
+
+    @Override
+    public void OnResultListener(boolean result) {
+        if (result) {
+            getActivity().finish();
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.layout_edit_details, container, false);
 
 
-        mPatientNavigationViewModel = ViewModelProviders.of(getActivity()).get(PatientNavigationViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(EditDetailsViewModel.class);
 
         Button saveBtn = view.findViewById(R.id.edit_details_save_btn);
-        Button cancelBtn = view.findViewById(R.id.cancel_btn);
-        mFirstNameEt = view.findViewById(R.id.firstNameEt);
-        mLastNameEt = view.findViewById(R.id.lastNameEt);
+        Button cancelBtn = view.findViewById(R.id.edit_details_cancel_btn);
+        mFirstNameEt = view.findViewById(R.id.edit_details_first_name_et);
+        mLastNameEt = view.findViewById(R.id.edit_details_last_name_et);
         mDobEt = view.findViewById(R.id.dobEt);
+
+        mViewModel.setOnUserReceivedListener(this);
 
         setHints();
 
@@ -60,11 +78,8 @@ public class EditDetailsFragment extends Fragment {
         //mFirstNameEt.setText();
     }
 
-    private void saveDetails(){
-        String name = mFirstNameEt.getText().toString() + " " + mLastNameEt.getText().toString();
-        String dob  = mDobEt.getText().toString();
+    private void saveDetails() {
+        mViewModel.commitEditChanges(mFirstNameEt.getText().toString(), mLastNameEt.getText().toString());
 
-        getActivity().setResult(getActivity().RESULT_OK);
-        getActivity().finish();
     }
 }

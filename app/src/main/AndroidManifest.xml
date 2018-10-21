@@ -24,6 +24,7 @@
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".doctor.DoctorNavigationActivity" />
         <activity android:name=".patient.PatientNavigationActivity"/>
+        <activity android:name=".drug.DrugActivity"/>
     </application>
 
 </manifest>

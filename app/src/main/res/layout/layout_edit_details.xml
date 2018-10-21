@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/edit_details_container"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".register.RegisterActivity">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,13 +23,13 @@
             >
 
             <TextView
-                android:id="@+id/register_title_tv"
+                android:id="@+id/edit_details_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/roboto_bold"
                 android:textAllCaps="true"
-                android:text="User Register"
+                android:text="Edit details"
                 android:textColor="#FFFFFF"
                 android:textSize="25dp"
                 android:textStyle="bold"
@@ -37,15 +38,6 @@
 
         </android.support.v7.widget.CardView>
 
-        <Spinner
-            android:id="@+id/user_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            >
-
-        </Spinner>
 
         <TableLayout
             android:layout_width="match_parent"
@@ -71,7 +63,7 @@
                     />
 
                 <EditText
-                    android:id="@+id/firstNameEt"
+                    android:id="@+id/edit_details_first_name_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
@@ -95,7 +87,7 @@
                     />
 
                 <EditText
-                    android:id="@+id/lastNameEt"
+                    android:id="@+id/edit_details_last_name_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
@@ -120,61 +112,11 @@
                     />
 
                 <EditText
-                    android:id="@+id/dobEt"
+                    android:id="@+id/edit_details_dob_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:inputType="date"
-                    />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/forthRow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:fontFamily="@font/roboto_bold"
-                    android:layout_margin="5dp"
-                    android:text="Email"
-                    />
-
-                <EditText
-                    android:id="@+id/new_email_Et"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:inputType="textEmailAddress"
-                    />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/fifthRow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Password"
-                    />
-
-                <EditText
-                    android:id="@+id/new_password_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:inputType="textVisiblePassword"
                     />
 
             </TableRow>
@@ -193,15 +135,15 @@
 
         <Button
             style="@style/ButtonStyle"
-            android:id="@+id/register_btn"
+            android:id="@+id/edit_details_save_btn"
             android:background="@drawable/rounded_button"
-            android:text="Register"
+            android:text="Save"
             android:layout_marginRight="10dp"
             />
 
         <Button
             style="@style/ButtonStyle"
-            android:id="@+id/cancel_btn"
+            android:id="@+id/edit_details_cancel_btn"
             android:background="@drawable/rounded_button"
             android:text="Cancel"
             android:layout_marginLeft="10dp"

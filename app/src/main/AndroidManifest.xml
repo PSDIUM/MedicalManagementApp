@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".appointment.AddAppointmentActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+        <activity android:name=".edit.EditDetailsActivity"></activity>
+        <activity
+            android:name=".appointment.AddAppointmentActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,16 +24,17 @@
             android:name=".login.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".register.RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".doctor.DoctorNavigationActivity"
-            android:windowSoftInputMode="adjustPan"
+        <activity
+            android:name=".register.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".doctor.DoctorNavigationActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            />
-        <activity android:name=".patient.PatientNavigationActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".patient.PatientNavigationActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

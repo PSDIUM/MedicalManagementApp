@@ -17,6 +17,7 @@ import com.sepproject.medicalmanagementapp.model.History;
 import com.sepproject.medicalmanagementapp.model.User;
 
 import java.util.List;
+import java.util.Map;
 
 public class FirebaseUtil {
 
@@ -178,5 +179,9 @@ public class FirebaseUtil {
 
     public void addDrug(String name, double price, String dosage, String sideEffects) {
         mFirestore.collection("drugs").add(new Drug(name, dosage, price, sideEffects));
+    }
+
+    public void updateUsersName(String email, Map<String, Object> changes) {
+        mFirestore.collection("patient").document(email).update(changes);
     }
 }

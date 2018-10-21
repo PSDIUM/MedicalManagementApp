@@ -12,8 +12,8 @@
         android:title="@string/look_up" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_drugs"
         android:icon="@drawable/ic_drugs"
-        android:title="@string/drugs" />
+        android:title="hey rob what's ligma?" />
 
 </menu>

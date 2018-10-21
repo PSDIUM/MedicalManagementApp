@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.sepproject.medicalmanagementapp.model.Drug;
 import com.sepproject.medicalmanagementapp.model.History;
 import com.sepproject.medicalmanagementapp.model.User;
 
@@ -173,5 +174,9 @@ public class FirebaseUtil {
 
     public String getUserEmail(){
         return mAuth.getCurrentUser().getEmail();
+    }
+
+    public void addDrug(String name, double price, String dosage, String sideEffects) {
+        mFirestore.collection("drugs").add(new Drug(name, dosage, price, sideEffects));
     }
 }

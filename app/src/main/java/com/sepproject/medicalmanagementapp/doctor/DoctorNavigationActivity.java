@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.sepproject.medicalmanagementapp.R;
+import com.sepproject.medicalmanagementapp.drug.DrugListFragment;
 import com.sepproject.medicalmanagementapp.patient.PatientHistoryFragment;
 import com.sepproject.medicalmanagementapp.util.ViewStatePagerAdaptor;
 
@@ -15,7 +16,7 @@ public class DoctorNavigationActivity extends AppCompatActivity implements Patie
 
     private static final int HOME_POSITION = 0;
     private static final int LOOKUP_POSITION = 1;
-    private static final int HISTORY_POSITION = 2;
+    private static final int DRUG_POSITION = 2;
 
     private ViewStatePagerAdaptor mAdaptor;
 
@@ -30,6 +31,9 @@ public class DoctorNavigationActivity extends AppCompatActivity implements Patie
                     return true;
                 case R.id.navigation_dashboard:
                     mViewPager.setCurrentItem(LOOKUP_POSITION);
+                    return true;
+                case R.id.navigation_drugs:
+                    mViewPager.setCurrentItem(DRUG_POSITION);
                     return true;
             }
             return false;
@@ -53,6 +57,7 @@ public class DoctorNavigationActivity extends AppCompatActivity implements Patie
         mAdaptor = new ViewStatePagerAdaptor(getSupportFragmentManager());
         mAdaptor.addFragement(new DoctorHomeFragment(), "Home Fragment");
         mAdaptor.addFragement(new PatientLookupFragment(), "Patient Lookup Fragment");
+        mAdaptor.addFragement(new DrugListFragment(), "Drugs Fragment");
         viewPager.setAdapter(mAdaptor);
     }
 

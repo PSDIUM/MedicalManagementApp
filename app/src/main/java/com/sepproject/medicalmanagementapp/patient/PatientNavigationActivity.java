@@ -21,7 +21,6 @@ public class PatientNavigationActivity extends AppCompatActivity {
     private ViewStatePagerAdaptor mAdaptor;
     private ViewPager mViewPager;
     private PatientNavigationViewModel mPatientNavigationViewModel;
-    private User mDoctor;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

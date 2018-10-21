@@ -34,7 +34,13 @@ public class AddDrugActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mFirebaseUtil.addDrug();
+                // Get the text
+                String name = mDrugNameEt.getText().toString();
+                Double price = Double.parseDouble(mDrugPriceEt.getText().toString());
+                String dosage = mRecommendedDosageEt.getText().toString();
+                String sideEffects = mSideEffects.getText().toString();
+
+                mFirebaseUtil.addDrug(name, price, dosage, sideEffects);
             }
         });
     }

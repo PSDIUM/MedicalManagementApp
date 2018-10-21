@@ -28,6 +28,8 @@
             />
         <activity android:name=".patient.PatientNavigationActivity"
             android:windowSoftInputMode="adjustPan"/>
+      <activity android:name=".drug.DrugActivity"/>
+
     </application>
 
 </manifest>

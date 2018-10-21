@@ -61,7 +61,13 @@ public class RegisterFragment extends Fragment {
                 registerUser();
             }
         });
-
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().setResult(getActivity().RESULT_CANCELED);
+                getActivity().finish();
+            }
+        });
 
         return view;
     }
@@ -75,7 +81,7 @@ public class RegisterFragment extends Fragment {
         User user = new User(name, password, email, userType);
         mRegisterViewModel.registerUser(user);
         mRegisterViewModel.registerUser(email, password);
-
+        getActivity().setResult(getActivity().RESULT_OK);
         getActivity().finish();
     }
 }

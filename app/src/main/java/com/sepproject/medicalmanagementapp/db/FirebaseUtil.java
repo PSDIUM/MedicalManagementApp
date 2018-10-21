@@ -126,7 +126,6 @@ public class FirebaseUtil {
     public void getUser(String userType) {
 
         if (mAuth.getCurrentUser() != null) {
-            //We are going to fix this
             mFirestore.collection(userType.toLowerCase()).document(mAuth.getCurrentUser().getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -165,7 +164,7 @@ public class FirebaseUtil {
     }
 
     public void registerUser(User user) {
-        mFirestore.collection(user.getUserType().toLowerCase()).document(user.getEmail()).set(user);
+        mFirestore.collection(user.getUserType().toLowerCase()).document(user.getEmail().toLowerCase()).set(user);
     }
 
     public void addAppointment(User user, History history){

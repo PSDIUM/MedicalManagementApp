@@ -14,6 +14,6 @@
     <item
         android:id="@+id/navigation_drugs"
         android:icon="@drawable/ic_drugs"
-        android:title="hey rob what's ligma?" />
+        android:title="Drugs" />
 
 </menu>

@@ -29,7 +29,7 @@ public class LookupListAdaptor extends RecyclerView.Adapter<LookupListAdaptor.Lo
         public LookupViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.patient_item_name_tv);
-            id = itemView.findViewById(R.id.patient_id_tv);
+            id = itemView.findViewById(R.id.patient_item_id_tv);
             image = itemView.findViewById(R.id.patient_item_image_iv);
             navigation = itemView.findViewById(R.id.patient_item_container);
         }
@@ -57,6 +57,7 @@ public class LookupListAdaptor extends RecyclerView.Adapter<LookupListAdaptor.Lo
         if (mUserList != null) {
             final User current = mUserList.get(position);
             holder.title.setText(current.getName());
+            holder.id.setText("#" + String.valueOf(current.getId()));
             holder.navigation.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

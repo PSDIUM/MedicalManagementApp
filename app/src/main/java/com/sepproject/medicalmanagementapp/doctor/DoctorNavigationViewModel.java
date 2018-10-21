@@ -72,6 +72,14 @@ public class DoctorNavigationViewModel extends ViewModel implements FirebaseUtil
         return mAllPatients;
     }
 
+    public void registerUser(User user){
+        mFirebaseUtil.registerUser(user);
+    }
+
+    public void registerUser(String email, String password){
+        mFirebaseUtil.registerUser(email, password);
+    }
+
     @Override
     public void OnGetTaskResultReceived(User user) {
         mUser.postValue(user);

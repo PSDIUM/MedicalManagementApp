@@ -21,10 +21,15 @@
             android:name=".login.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".doctor.DoctorNavigationActivity" />
-        <activity android:name=".patient.PatientNavigationActivity"/>
-        <activity android:name=".drug.DrugActivity"/>
+        <activity android:name=".register.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".doctor.DoctorNavigationActivity"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity android:name=".patient.PatientNavigationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+      <activity android:name=".drug.DrugActivity"/>
+
     </application>
 
 </manifest>

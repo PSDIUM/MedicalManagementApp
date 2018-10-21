@@ -21,7 +21,8 @@
             android:name=".login.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".register.RegisterActivity" />
+        <activity android:name=".register.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".doctor.DoctorNavigationActivity"
             android:windowSoftInputMode="adjustPan"
             />

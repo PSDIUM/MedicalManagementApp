@@ -21,7 +21,6 @@
             android:name=".login.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".doctor.DoctorActivity" />
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".doctor.DoctorNavigationActivity" />
         <activity android:name=".patient.PatientNavigationActivity"/>

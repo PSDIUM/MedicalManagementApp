@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
 public class PatientNavigationViewModel extends ViewModel implements FirebaseUtil.GetTaskResultListener {
 
     private FirebaseUtil mFirebaseUtil = FirebaseUtil.getInstance();
+    private MutableLiveData<User> mUser = new MutableLiveData<>();
     private MutableLiveData<User> mPatient = new MutableLiveData<>();
     private MutableLiveData<List<History>> mAllAppointments = new MutableLiveData<>();
 
@@ -25,11 +26,23 @@ public class PatientNavigationViewModel extends ViewModel implements FirebaseUti
         mFirebaseUtil.setGetTaskResultListener(this);
     }
 
+    public String getUserEmail(){
+        return mFirebaseUtil.getUserEmail();
+    }
+
+    public LiveData<User> setUser(){
+        return mUser;
+    }
+
+    public void getUser(String userType){
+        mFirebaseUtil.getUser(userType);
+    }
+
     public void setPatient(String email){
         mFirebaseUtil.setPatient(email);
     }
 
-    public LiveData<User> getPatient(){
+    public LiveData<User> getPatient() {
         return mPatient;
     }
 
@@ -58,6 +71,11 @@ public class PatientNavigationViewModel extends ViewModel implements FirebaseUti
 
     @Override
     public void OnGetTaskResultReceived(User user) {
+        mUser.postValue(user);
+    }
+
+    @Override
+    public void OnGetPatientResultListener(User user) {
         mPatient.postValue(user);
     }
 }

@@ -56,8 +56,9 @@ public class FirebaseUtil {
     }
 
     public interface GetTaskResultListener {
-
         void OnGetTaskResultReceived(User user);
+
+        void OnGetPatientResultListener(User user);
     }
 
     // Set Result Listener
@@ -147,9 +148,9 @@ public class FirebaseUtil {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 User user = task.getResult().toObject(User.class);
                 if (task.isSuccessful()) {
-                    mGetResultListener.OnGetTaskResultReceived(user);
+                    mGetResultListener.OnGetPatientResultListener(user);
                 } else {
-                    mGetResultListener.OnGetTaskResultReceived(user);
+                    mGetResultListener.OnGetPatientResultListener(user);
                 }
             }
         });
@@ -171,4 +172,7 @@ public class FirebaseUtil {
         mFirestore.collection("history").document(user.getEmail()).collection("appointments").document(history.getDate() + " " + history.getTime()).set(history);
     }
 
+    public String getUserEmail(){
+        return mAuth.getCurrentUser().getEmail();
+    }
 }

@@ -76,4 +76,9 @@ public class DoctorNavigationViewModel extends ViewModel implements FirebaseUtil
     public void OnGetTaskResultReceived(User user) {
         mUser.postValue(user);
     }
+
+    @Override
+    public void OnGetPatientResultListener(User user) {
+
+    }
 }

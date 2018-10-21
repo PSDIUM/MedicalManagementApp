@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.patient.PatientHistoryFragement;
+import com.sepproject.medicalmanagementapp.patient.PatientHistoryFragment;
 import com.sepproject.medicalmanagementapp.util.ViewStatePagerAdaptor;
 
 public class DoctorNavigationActivity extends AppCompatActivity implements PatientLookupFragment.LookupListener {
@@ -58,7 +58,7 @@ public class DoctorNavigationActivity extends AppCompatActivity implements Patie
 
     @Override
     public void changeFragment(int position, Bundle args) {
-        PatientHistoryFragement frag = new PatientHistoryFragement();
+        PatientHistoryFragment frag = new PatientHistoryFragment();
         frag.setArguments(args);
         this.getSupportFragmentManager().beginTransaction()
                 .replace(R.id.patient_lookup_container, frag,"PatientHistoryFragment")

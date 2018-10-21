@@ -29,10 +29,10 @@ public class PatientNavigationActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.navigation_patient_home:
                     mViewPager.setCurrentItem(HOME_POSITION);
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_patient_history:
                     mViewPager.setCurrentItem(HISTORY_POSITION);
                     return true;
             }
@@ -44,8 +44,8 @@ public class PatientNavigationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_navigation);
-        mViewPager = findViewById(R.id.doctor_navigation_container);
+        setContentView(R.layout.activity_patient_navigation);
+        mViewPager = findViewById(R.id.patient_navigation_container);
         mPatientNavigationViewModel = ViewModelProviders.of(this).get(PatientNavigationViewModel.class);
 
         new Handler().postDelayed(new Runnable() {

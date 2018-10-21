@@ -44,11 +44,11 @@
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:gravity="center_vertical"
-                    android:text="RequesterID"
+                    android:text="Requester Email"
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/requesterId_Et"
+                    android:id="@+id/requesterEmail_Et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
@@ -70,10 +70,10 @@
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:gravity="center_vertical"
-                    android:text="PatientID" />
+                    android:text="Patient Email" />
 
                 <EditText
-                    android:id="@+id/patientId_Et"
+                    android:id="@+id/patientEmail_Et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"

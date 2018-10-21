@@ -41,15 +41,15 @@
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:gravity="center_vertical"
-                    android:text="RequesterID"
+                    android:text="Requester Email"
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/requesterId_Et"
+                    android:id="@+id/requesterEmail_Et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:hint="Sending Doctor ID"
+                    android:hint="Sending Doctor Test"
                     android:inputType="number"
                     android:textSize="14sp" />
             </TableRow>
@@ -60,18 +60,19 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/recipient_Tv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:gravity="center_vertical"
-                    android:text="RecipientID" />
+                    android:text="Recipient Email" />
 
                 <EditText
-                    android:id="@+id/recipientId_Et"
+                    android:id="@+id/recipientEmail_Et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:hint="Recieving Doctor ID"
+                    android:hint="Recieving Doctor Test"
                     android:inputType="number"
                     android:textSize="14sp" />
 
@@ -88,14 +89,14 @@
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
                     android:gravity="center_vertical"
-                    android:text="PatientID" />
+                    android:text="Patient Email" />
 
                 <EditText
-                    android:id="@+id/patientId_Et"
+                    android:id="@+id/patientEmail_Et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:hint="Test Subject ID"
+                    android:hint="Patient Email"
                     android:inputType="number"
                     android:textSize="14sp" />
 

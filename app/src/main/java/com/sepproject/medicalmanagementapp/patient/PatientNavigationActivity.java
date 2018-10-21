@@ -1,6 +1,8 @@
 package com.sepproject.medicalmanagementapp.patient;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
@@ -8,17 +10,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.sepproject.medicalmanagementapp.R;
-import com.sepproject.medicalmanagementapp.navigation.DoctorHomeFragment;
-import com.sepproject.medicalmanagementapp.navigation.PatientLookupFragment;
+import com.sepproject.medicalmanagementapp.model.User;
 import com.sepproject.medicalmanagementapp.util.ViewStatePagerAdaptor;
 
-public class PatientNavigationActivity extends AppCompatActivity implements PatientLookupFragment.LookupListener {
+public class PatientNavigationActivity extends AppCompatActivity {
 
     private static final int HOME_POSITION = 0;
     private static final int HISTORY_POSITION = 1;
-    private static final int OPTIONS_POSITION = 2;
 
     private ViewStatePagerAdaptor mAdaptor;
+    private ViewPager mViewPager;
+    private PatientNavigationViewModel mPatientNavigationViewModel;
+    private User mDoctor;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -36,34 +39,40 @@ public class PatientNavigationActivity extends AppCompatActivity implements Pati
             return false;
         }
     };
-    private ViewPager mViewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_navigation);
-
         mViewPager = findViewById(R.id.doctor_navigation_container);
-        setupViewPager(mViewPager);
+        mPatientNavigationViewModel = ViewModelProviders.of(this).get(PatientNavigationViewModel.class);
 
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setupViewPager();
+            }
+        }, 500);
+    }
+
+    private void setupViewPager(){
+        Bundle args = new Bundle();
+        args.putString("USER_EMAIL", mPatientNavigationViewModel.getUserEmail());
+        PatientHistoryFragment patientHistoryFragment = new PatientHistoryFragment();
+        patientHistoryFragment.setArguments(args);
+
+        mAdaptor = new ViewStatePagerAdaptor(getSupportFragmentManager());
+        mAdaptor.addFragement(new PatientHomeFragment(), "Home Fragment");
+        mAdaptor.addFragement(patientHistoryFragment, "Patient Lookup Fragment");
+        mViewPager.setAdapter(mAdaptor);
+
+        pushFragment();
+    }
+
+    private void pushFragment(){
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
-    private void setupViewPager(ViewPager viewPager){
-        mAdaptor = new ViewStatePagerAdaptor(getSupportFragmentManager());
-        mAdaptor.addFragement(new DoctorHomeFragment(), "Home Fragment");
-        mAdaptor.addFragement(new PatientLookupFragment(), "Patient Lookup Fragment");
-        viewPager.setAdapter(mAdaptor);
-    }
-
-    @Override
-    public void changeFragment(int position, Bundle args) {
-        PatientHistoryFragement frag = new PatientHistoryFragement();
-        frag.setArguments(args);
-        this.getSupportFragmentManager().beginTransaction()
-                .replace(R.id.patient_lookup_container, frag,"PatientHistoryFragment")
-                .addToBackStack(null)
-                .commit();
-    }
 }

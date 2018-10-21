@@ -119,9 +119,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch(requestCode) {
             case (REGISTER_REQUEST) : {
-                if (resultCode == Activity.RESULT_OK) {
-                    Toast.makeText(LoginActivity.this, "User Registered", Toast.LENGTH_LONG).show();
-                } else {
+                if (resultCode == Activity.RESULT_CANCELED) {
                     Toast.makeText(LoginActivity.this, "Registration Cancelled", Toast.LENGTH_LONG).show();
                 }
                 break;

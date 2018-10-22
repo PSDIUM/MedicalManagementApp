@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".edit.EditDetailsActivity"></activity>
+        <activity android:name=".drug.AddDrugActivity"/>
         <activity
             android:name=".appointment.AddAppointmentActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
